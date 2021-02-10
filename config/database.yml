@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: "kohei"
+  password: ""
+  host: localhost
+  timeout: 5000
+
+development:
+  <<: *default
+# データベースの名前。アプリケーションの名前_環境にする
+  database: collab_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+# データベースの名前。アプリケーションの名前_環境にする
+  database: collab_test
+
+production:
+  <<: *default
+# データベースの名前。アプリケーションの名前_環境にする
+  database: collab_production

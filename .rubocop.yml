@@ -1,0 +1,68 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  # 除外するディレクトリ（自動生成されたファイル）
+  # デフォルト設定にある"vendor/**/*"が無効化されないように記述
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - node_modules/**/*
+    - db/migrate/*
+    - vendor/**/*
+  # Rails向けのRails copsを実行。"rubocop -R"と同じ
+  Rails:
+    enabled: true
+
+# "Missing top-level class documentation comment."を無効
+Style/Documentation:
+  Enabled: false
+
+# "Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
+Style/StringLiterals:
+  Enabled: false
+
+# "Line is too long"を無効
+Metrics/LineLength:
+  Enabled: false
+
+#'frozen_string_literal: true'を無効
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Use nested module/class definitions instead of compact style. を無視
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+# do .. end から更にメソッドチェーンすると見づらいので
+# auto-correct せず、自分で修正する
+# spec 内は見た目が綺麗になるので許可
+Style/BlockDelimiters:
+  AutoCorrect: false
+  Exclude:
+    - "spec/**/*"
+
+Style/BlockComments:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+# 行数を変更 use/show
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/BlockLength:
+  Max: 65
+
+Metrics/AbcSize:
+  Max: 50
