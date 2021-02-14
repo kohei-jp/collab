@@ -3,6 +3,8 @@ import {signInAction} from './actions';
 import {push} from 'connected-react-router';
 import { usersUrl } from '../../urls/index'
 
+// modulesに書くロジックをこちら側に写す
+
 export const signIn = () => {
   return async (dispatch, getState) => {
     const state = getState()

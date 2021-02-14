@@ -23,3 +23,11 @@ export const signOutAction = () => { //sign_outは、引数を受け取る必要
     }
   }
 }
+
+
+// ユーザ新規登録時のデータを保存
+export const FETCH_USER = "FETCH_USER";
+export const fetchUser = user => ({
+  type: FETCH_USER,
+  payload: user,
+});

@@ -3,6 +3,7 @@ import { getUserId, getUserName, getUserEmail } from '../reducks/users/selectors
 import { useSelector } from 'react-redux';
 
 const Home = () => {
+  
   // 変数selectorに全stateが入る
   const selector = useSelector(state => state);
   // それをgetUserIdに渡して、uidだけ抽出させる
