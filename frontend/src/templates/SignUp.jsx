@@ -8,12 +8,12 @@ import { sessionsCreateUrl } from '../urls/index';
 import {fetchUser} from '../reducks/users/actions';
 
 
-const SessionNew = () => {
+const SignUp = () => {
   const dispatch = useDispatch();
   const onSubmit = async(values) => {
       // controllerに飛ばすparams
       const params = {
-        users: { user_name: values.username, email: values.email, hashed_password: values.password }
+        users: { user_name: values.user_namee, email: values.email, hashed_password: values.password }
       }
     // API通信
     const response = await promiseApi(sessionsCreateUrl, POST_METHOD, params)
@@ -39,8 +39,8 @@ const SessionNew = () => {
         onSubmit={onSubmit}
         validate={values => {
           const errors = {}
-          if (!values.username) {
-            errors.username = 'Required'
+          if (!values.user_namee) {
+            errors.user_namee = 'Required'
           }
           if (!values.email) {
             errors.email = 'Required'
@@ -57,11 +57,11 @@ const SessionNew = () => {
         }}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
           <form onSubmit={handleSubmit}>
-            <Field name="username">
+            <Field name="user_namee">
               {({ input, meta }) => (
                 <div>
                   <label>ユーザ名</label>
-                  <input {...input} type="text" placeholder="Username" />
+                  <input {...input} type="text" placeholder="user_namee" />
                   {meta.error && meta.touched && <span>{meta.error}</span>}
                 </div>
               )}
@@ -112,4 +112,4 @@ const SessionNew = () => {
     </Styles>
   )
 }
-export default SessionNew;
+export default SignUp;

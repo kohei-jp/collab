@@ -5,10 +5,10 @@ const usersSelector = (state) => state.users;
 // 全State内からusersを取り出して、usersSelectorに入れている.
 
 export const getUserId = createSelector(
-  [usersSelector], // usersSelectorを配列に入れて、その中のuidだけを返す
+  [usersSelector], // usersSelectorを配列に入れて、その中のidだけを返す
   state => state.id
 )
-export const getUserName = createSelector(
+export const getuser_name = createSelector(
   [usersSelector],
   state => state.user_name
 )

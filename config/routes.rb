@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     # 開発途中でAPIの仕様を大幅に変更する可能性に備えてv1。
     namespace :v1 do
+      resources :top, only: %i[index]
       resources :users, only: %i[index create]
       resources :sessions, only: %i[create destroy]
     end
