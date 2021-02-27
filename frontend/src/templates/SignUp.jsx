@@ -13,13 +13,14 @@ const SignUp = () => {
   const onSubmit = async(values) => {
       // controllerに飛ばすparams
       const params = {
-        users: { user_name: values.user_namee, email: values.email, hashed_password: values.password }
+        users: { user_name: values.user_name, email: values.email, password: values.password }
       }
     // API通信
     const response = await promiseApi(sessionsCreateUrl, POST_METHOD, params)
 
     // 通信成功
     if (response.data.status === 200) {
+        console.log(response.data);
         dispatch(fetchUser(response.data.user))
         dispatch(push('/'));
     // 通信失敗
@@ -39,8 +40,8 @@ const SignUp = () => {
         onSubmit={onSubmit}
         validate={values => {
           const errors = {}
-          if (!values.user_namee) {
-            errors.user_namee = 'Required'
+          if (!values.user_name) {
+            errors.user_name = 'Required'
           }
           if (!values.email) {
             errors.email = 'Required'
@@ -57,11 +58,11 @@ const SignUp = () => {
         }}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
           <form onSubmit={handleSubmit}>
-            <Field name="user_namee">
+            <Field name="user_name">
               {({ input, meta }) => (
                 <div>
                   <label>ユーザ名</label>
-                  <input {...input} type="text" placeholder="user_namee" />
+                  <input {...input} type="text" placeholder="user_name" />
                   {meta.error && meta.touched && <span>{meta.error}</span>}
                 </div>
               )}

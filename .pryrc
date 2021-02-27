@@ -25,5 +25,6 @@ if defined? Hirb
   end
 
   # hirbをオフにしたい時はHirb.disableする
-  Hirb.enable
+  # Hirb.enable
+  Hirb.disable
 end
